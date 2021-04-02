@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<center>
+<div style="text-align:center;">
+<font size="3">
+表示する写真の種類を選択してください。
+</font>
+<hr>
+<form action = "./" method = "POST" enctype = "multipart/form-data">
+        <div>
+            <input type="radio" name="kind" id="r1" value="real" checked="checked">
+            <label for="r1">real photo</label>
+        </div>
+        <div>
+            <input type="radio" name="kind" id="r2" value="fake">
+            <label for="r2">fake photo</label>
+        </div>
+        </div>
+    </p>
+    <input type = "submit" value="表示">
+</form>
+<form action="" method="POST"></form>
+</div>
+</center>
+
+{% if err_message %}
+<hr>
+<center><font size="6" color=red><b>{{ err_message }}</b></font></center>
+<hr>
+{% endif %}
+
+{% if image_path_1 %}
+<center>
+<hr>
+<font size="4">Real Photo<br></font>
+<!-- {{ image_path_1 }}<br> -->
+<img src="{{ image_path_1 }}" style="margin-top: 10px; vertical-align: bottom; width: 250px"><br>
+<hr>
+</center>
+{% endif %}
+
+{% if image_path_2 %}
+<center>
+<hr>
+<font size="4">Fake Photo<br></font>
+<!-- image_path_1<br> -->
+<img src="{{ image_path_2 }}" style="margin-top: 10px; vertical-align: bottom; width: 250px"><br>
+<hr>
+</center>
+{% endif %}
+
+{% endblock %}
